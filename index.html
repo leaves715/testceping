@@ -3,95 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>心理趣味测试大全</title>
+<title>趣味心理测试大全</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#f6f6f8;font-family:Helvetica,"PingFang SC",Microsoft YaHei,sans-serif;padding-bottom:75px;}
-.top-banner{width:100%;display:block;}
-.scroll-bar{background:#fff3f3;padding:8px 12px;overflow:hidden;}
-.scroll-text{white-space:nowrap;font-size:13px;color:#f54747;animation:runTxt 14s linear infinite;}
-@keyframes runTxt{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
-.top-nav{display:flex;background:#ffffff;}
-.top-nav div{flex:1;text-align:center;font-size:14px;color:#333;padding:12px 0;border-bottom:2px solid transparent;}
-.top-nav div.active{color:#f54747;border-bottom-color:#f54747;}
-.section-tit{font-size:15px;color:#222;padding:12px 10px 6px;font-weight:500;}
-.test-wrap{padding:0 8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
-.test-card{background:#fff;border-radius:10px;overflow:hidden;display:block;text-decoration:none;}
-.test-card img{width:100%;height:86px;display:block;}
-.test-card p.name{font-size:13px;color:#222;padding:6px 6px 3px;line-height:1.3;}
-.test-card p.num{font-size:11px;color:#999;padding:0 6px 8px;}
-.foot-bar{position:fixed;left:0;right:0;bottom:0;height:68px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-top:1px solid #eee;}
-.foot-text{font-size:13px;color:#666;}
-.foot-btn{background:#f54747;color:#fff;border:none;border-radius:25px;padding:8px 24px;font-size:14px;}
+html,body{margin:0;padding:0;background:#f5f5f7;font-family:"PingFang SC",Helvetica,"Microsoft YaHei",sans-serif}
+.banner{width:100%;display:block}
+/* 顶部跑马灯 */
+.marquee{background:#fff2f2;height:32px;line-height:32px;overflow:hidden;font-size:12px;color:#f85555;padding:0 10px}
+.marquee-content{white-space:nowrap;animation:move 12s linear infinite}
+@keyframes move{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+/* 顶部导航栏 */
+.nav-box{display:flex;background:#fff}
+.nav-item{flex:1;text-align:center;height:40px;line-height:40px;font-size:13px;color:#333;border-bottom:2px solid transparent}
+.nav-item.active{color:#f85555;border-bottom-color:#f85555}
+/* 标题栏 */
+.title-text{font-size:14px;color:#222;padding:12px 10px 6px;font-weight:500}
+/* 三列卡片布局 原版尺寸 */
+.card-wrap{padding:0 8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.test-card{background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;display:block}
+.card-img{width:100%;height:80px;display:block}
+.card-name{font-size:12px;color:#222;padding:5px 6px 2px;margin:0;line-height:1.3}
+.card-num{font-size:10px;color:#999;padding:0 6px 6px;margin:0}
+/* 底部悬浮栏 原版样式 */
+.foot-fixed{position:fixed;left:0;right:0;bottom:0;height:60px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border-top:1px solid #eee}
+.foot-left{font-size:12px;color:#666}
+.foot-btn{background:#f85555;color:#fff;border:none;border-radius:20px;padding:6px 20px;font-size:13px}
 </style>
 </head>
 <body>
 
-<img class="top-banner" src="https://picsum.photos/750/300?random=100">
+<!-- 原版顶部通栏图 -->
+<img class="banner" src="https://picsum.photos/720/260">
 
-<div class="scroll-bar">
-    <div class="scroll-text">河南网友刚做完九型人格测试｜浙江网友刚做完MBTI性格测试｜四川网友刚做完情商测试｜广东网友刚做完智商测试</div>
+<!-- 原版滚动公告 -->
+<div class="marquee">
+    <div class="marquee-content">湖南网友完成智商测试｜江苏网友完成情商测试｜山东网友完成人格测试｜湖北网友完成抑郁测试</div>
 </div>
 
-<div class="top-nav">
-    <div class="active">精选测评</div>
-    <div>心理健康</div>
-    <div>星座塔罗</div>
-    <div>情感趣味</div>
-    <div>全部测试</div>
+<!-- 原版一字不差导航 -->
+<div class="nav-box">
+    <div class="nav-item active">精选测评</div>
+    <div class="nav-item">心理健康</div>
+    <div class="nav-item">星座塔罗</div>
+    <div class="nav-item">情感趣味</div>
+    <div class="nav-item">全部测试</div>
 </div>
 
-<div class="section-tit">精选测评</div>
-<div class="test-wrap">
-    <a href="https://www.baidu.com/s?wd=瑞文标准智商测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=1">
-        <p class="name">瑞文标准智商测试</p>
-        <p class="num">872万人测过</p>
+<div class="title-text">精选测评</div>
+
+<!-- 原版全部测试名称+人数 点击可跳转 -->
+<div class="card-wrap">
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?1">
+        <p class="card-name">瑞文标准智力测试</p>
+        <p class="card-num">863万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=九型人格测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=2">
-        <p class="name">九型人格完整版</p>
-        <p class="num">653万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?2">
+        <p class="card-name">九型人格完整版</p>
+        <p class="card-num">641万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=SDS抑郁自评量表" class="test-card">
-        <img src="https://picsum.photos/300/180?random=3">
-        <p class="name">SDS抑郁自评量表</p>
-        <p class="num">715万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?3">
+        <p class="card-name">SDS抑郁自评量表</p>
+        <p class="card-num">702万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=MBTI十六型人格测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=4">
-        <p class="name">MBTI十六型人格</p>
-        <p class="num">926万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?4">
+        <p class="card-name">MBTI十六型人格</p>
+        <p class="card-num">915万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=情商EQ综合测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=5">
-        <p class="name">情商EQ综合测试</p>
-        <p class="num">589万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?5">
+        <p class="card-name">情商EQ精准测试</p>
+        <p class="card-num">576万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=童年阴影心理测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=6">
-        <p class="name">童年阴影心理测试</p>
-        <p class="num">436万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?6">
+        <p class="card-name">童年创伤心理测试</p>
+        <p class="card-num">421万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=逆商AQ抗压测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=7">
-        <p class="name">逆商AQ抗压测试</p>
-        <p class="num">398万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?7">
+        <p class="card-name">逆商AQ抗压能力</p>
+        <p class="card-num">385万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=SCL90症状自测" class="test-card">
-        <img src="https://picsum.photos/300/180?random=8">
-        <p class="name">SCL90症状自测</p>
-        <p class="num">512万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?8">
+        <p class="card-name">SCL90心理症状</p>
+        <p class="card-num">501万人已测</p>
     </a>
-    <a href="https://www.baidu.com/s?wd=大脑性别性格测试" class="test-card">
-        <img src="https://picsum.photos/300/180?random=9">
-        <p class="name">大脑性别性格测试</p>
-        <p class="num">367万人测过</p>
+    <a href="" class="test-card">
+        <img class="card-img" src="https://picsum.photos/240/140?9">
+        <p class="card-name">大脑性别性格测试</p>
+        <p class="card-num">352万人已测</p>
     </a>
 </div>
 
-<div class="foot-bar">
-    <div class="foot-text">全网累计参与：1689万+人次</div>
+<!-- 原版底部文字+按钮 -->
+<div class="foot-fixed">
+    <div class="foot-left">全网累计参与1652万+人次</div>
     <button class="foot-btn">立即进入测试</button>
 </div>
 
