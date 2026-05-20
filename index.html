@@ -3,106 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>趣味心理测试大全</title>
+<title>知心鹿-趣味心理测试大全</title>
 <style>
-html,body{margin:0;padding:0;background:#f5f5f7;font-family:"PingFang SC",Helvetica,"Microsoft YaHei",sans-serif}
-.banner{width:100%;display:block}
-/* 顶部跑马灯 */
-.marquee{background:#fff2f2;height:32px;line-height:32px;overflow:hidden;font-size:12px;color:#f85555;padding:0 10px}
-.marquee-content{white-space:nowrap;animation:move 12s linear infinite}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f5f5f7;font-family:"PingFang SC",Helvetica,"Microsoft YaHei",sans-serif;padding-bottom:70px;}
+
+/* 1. 顶部轮播区域 */
+.banner{width:100%;height:220px;background:#e8eaf6;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.banner-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:bold;}
+.banner-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
+.dot{width:8px;height:8px;border-radius:50%;background:#fff5;}
+.dot.active{background:#fff;}
+
+/* 2. 跑马灯公告 */
+.marquee{background:#fff;padding:8px 12px;overflow:hidden;font-size:13px;color:#666;}
+.marquee-content{white-space:nowrap;animation:move 18s linear infinite;}
 @keyframes move{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-/* 顶部导航栏 */
-.nav-box{display:flex;background:#fff}
-.nav-item{flex:1;text-align:center;height:40px;line-height:40px;font-size:13px;color:#333;border-bottom:2px solid transparent}
-.nav-item.active{color:#f85555;border-bottom-color:#f85555}
-/* 标题栏 */
-.title-text{font-size:14px;color:#222;padding:12px 10px 6px;font-weight:500}
-/* 三列卡片布局 原版尺寸 */
-.card-wrap{padding:0 8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.test-card{background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;display:block}
-.card-img{width:100%;height:80px;display:block}
-.card-name{font-size:12px;color:#222;padding:5px 6px 2px;margin:0;line-height:1.3}
-.card-num{font-size:10px;color:#999;padding:0 6px 6px;margin:0}
-/* 底部悬浮栏 原版样式 */
-.foot-fixed{position:fixed;left:0;right:0;bottom:0;height:60px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border-top:1px solid #eee}
-.foot-left{font-size:12px;color:#666}
-.foot-btn{background:#f85555;color:#fff;border:none;border-radius:20px;padding:6px 20px;font-size:13px}
+
+/* 3. 顶部图标导航 */
+.icon-nav{display:flex;justify-content:space-around;background:#fff;padding:15px 0;}
+.icon-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#333;}
+.icon-item .icon{width:40px;height:40px;margin-bottom:5px;}
+.icon-item span{font-size:13px;}
+
+/* 4. 热门测评标题栏 */
+.section-header{display:flex;justify-content:space-between;align-items:center;padding:15px 10px 8px;}
+.section-title{font-size:16px;font-weight:500;color:#222;}
+.refresh-btn{font-size:13px;color:#666;display:flex;align-items:center;gap:4px;}
+
+/* 5. 双列卡片布局 */
+.hot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 10px 15px;}
+.hot-card{background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;display:block;}
+.hot-card img{width:100%;height:110px;display:block;object-fit:cover;}
+.hot-card p{font-size:12px;color:#222;padding:6px 8px;line-height:1.3;}
+
+/* 6. 精选测评列表 */
+.tab-nav{display:flex;background:#fff;padding:10px 10px 0;gap:20px;}
+.tab-item{font-size:14px;color:#666;padding-bottom:8px;border-bottom:2px solid transparent;}
+.tab-item.active{color:#f85555;border-bottom-color:#f85555;}
+.test-list{background:#fff;margin:10px;border-radius:8px;}
+.test-item{display:flex;padding:15px;border-bottom:1px solid #eee;align-items:center;}
+.test-item:last-child{border-bottom:none;}
+.test-item img{width:100px;height:80px;border-radius:6px;object-fit:cover;}
+.test-info{flex:1;padding-left:12px;}
+.test-title{font-size:15px;color:#222;margin-bottom:6px;}
+.test-desc{font-size:12px;color:#888;margin-bottom:8px;}
+.test-count{font-size:13px;color:#f85555;}
+.test-btn{background:#63a4ff;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:13px;}
+
+/* 7. 底部导航栏 */
+.footer-nav{position:fixed;left:0;right:0;bottom:0;height:60px;background:#fff;display:flex;justify-content:space-around;align-items:center;border-top:1px solid #eee;}
+.footer-item{display:flex;flex-direction:column;align-items:center;color:#666;text-decoration:none;}
+.footer-item.active{color:#25b864;}
+.footer-item span{font-size:12px;margin-top:3px;}
 </style>
 </head>
 <body>
 
-<!-- 原版顶部通栏图 -->
-<img class="banner" src="https://picsum.photos/720/260">
+<!-- 1. 顶部轮播 -->
+<div class="banner">
+    <div class="banner-placeholder">
+        测测你的情商有多高？
+    </div>
+    <div class="banner-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
 
-<!-- 原版滚动公告 -->
+<!-- 2. 跑马灯公告 -->
 <div class="marquee">
-    <div class="marquee-content">湖南网友完成智商测试｜江苏网友完成情商测试｜山东网友完成人格测试｜湖北网友完成抑郁测试</div>
+    <div class="marquee-content">'奋斗不息的梦想'刚刚完成了情商测试｜'阳光彩虹小白马'刚刚完成了智商测试｜'小迷糊'刚刚完成了MBTI测试</div>
 </div>
 
-<!-- 原版一字不差导航 -->
-<div class="nav-box">
-    <div class="nav-item active">精选测评</div>
-    <div class="nav-item">心理健康</div>
-    <div class="nav-item">星座塔罗</div>
-    <div class="nav-item">情感趣味</div>
-    <div class="nav-item">全部测试</div>
-</div>
-
-<div class="title-text">精选测评</div>
-
-<!-- 原版全部测试名称+人数 点击可跳转 -->
-<div class="card-wrap">
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?1">
-        <p class="card-name">瑞文标准智力测试</p>
-        <p class="card-num">863万人已测</p>
+<!-- 3. 图标导航 -->
+<div class="icon-nav">
+    <a href="#" class="icon-item">
+        <svg class="icon" viewBox="0 0 100 100" fill="#63a4ff">
+            <path d="M50 10C28 10 10 28 10 50s18 40 40 40 40-18 40-40S72 10 50 10zm0 70c-16.5 0-30-13.5-30-30S33.5 20 50 20s30 13.5 30 30-13.5 30-30 30z"/>
+            <path d="M40 35c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm20 0c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10z"/>
+        </svg>
+        <span>智商测试</span>
     </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?2">
-        <p class="card-name">九型人格完整版</p>
-        <p class="card-num">641万人已测</p>
+    <a href="#" class="icon-item">
+        <svg class="icon" viewBox="0 0 100 100" fill="#f85555">
+            <path d="M70 25c-8.3 0-15 6.7-15 15 0 8.3 6.7 15 15 15s15-6.7 15-15-6.7-15-15-15zm-40 0c-8.3 0-15 6.7-15 15 0 8.3 6.7 15 15 15s15-6.7 15-15-6.7-15-15-15z"/>
+            <path d="M50 50c-13.8 0-25 11.2-25 25h50c0-13.8-11.2-25-25-25z"/>
+        </svg>
+        <span>情商测试</span>
     </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?3">
-        <p class="card-name">SDS抑郁自评量表</p>
-        <p class="card-num">702万人已测</p>
+    <a href="#" class="icon-item">
+        <svg class="icon" viewBox="0 0 100 100" fill="#ffc107">
+            <path d="M50 85c-3 0-6-1.5-7.5-4.5L20 50c-5-7-5-17 0-24s13-9 21-5c3 1.5 6 1.5 9 0 8-4 16-2 21 5s5 17 0 24L57.5 80.5c-1.5 3-4.5 4.5-7.5 4.5z"/>
+        </svg>
+        <span>mbti测试</span>
     </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?4">
-        <p class="card-name">MBTI十六型人格</p>
-        <p class="card-num">915万人已测</p>
-    </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?5">
-        <p class="card-name">情商EQ精准测试</p>
-        <p class="card-num">576万人已测</p>
-    </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?6">
-        <p class="card-name">童年创伤心理测试</p>
-        <p class="card-num">421万人已测</p>
-    </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?7">
-        <p class="card-name">逆商AQ抗压能力</p>
-        <p class="card-num">385万人已测</p>
-    </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?8">
-        <p class="card-name">SCL90心理症状</p>
-        <p class="card-num">501万人已测</p>
-    </a>
-    <a href="" class="test-card">
-        <img class="card-img" src="https://picsum.photos/240/140?9">
-        <p class="card-name">大脑性别性格测试</p>
-        <p class="card-num">352万人已测</p>
+    <a href="#" class="icon-item">
+        <svg class="icon" viewBox="0 0 100 100" fill="#4caf50">
+            <path d="M70 20c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm-40 20c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20z"/>
+        </svg>
+        <span>更多测试</span>
     </a>
 </div>
 
-<!-- 原版底部文字+按钮 -->
-<div class="foot-fixed">
-    <div class="foot-left">全网累计参与1652万+人次</div>
-    <button class="foot-btn">立即进入测试</button>
+<!-- 4. 热门测评 -->
+<div class="section-header">
+    <div class="section-title">热门测评</div>
+    <div class="refresh-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#666"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        换一换
+    </div>
+</div>
+<div class="hot-grid">
+    <a href="#" class="hot-card">
+        <img src="https://picsum.photos/200/110?1" alt="">
+        <p>2026scl90抑郁自测量表</p>
+    </a>
+    <a href="#" class="hot-card">
+        <img src="https://picsum.photos/200/110?2" alt="">
+        <p>原生家庭带给你的伤痛有多深？</p>
+    </a>
+    <a href="#" class="hot-card">
+        <img src="https://picsum.photos/200/110?3" alt="">
+        <p>2026名字配对/爱情测试（超准~）</p>
+    </a>
+</div>
+
+<!-- 5. 精选测评列表 -->
+<div class="tab-nav">
+    <div class="tab-item active">精选测评</div>
+    <div class="tab-item">热门必测</div>
+    <div class="tab-item">心理健康</div>
+    <div class="tab-item">星座塔罗</div>
+</div>
+<div class="test-list">
+    <div class="test-item">
+        <img src="https://picsum.photos/100/80?4" alt="">
+        <div class="test-info">
+            <div class="test-title">SDS抑郁深度检测-2026年专业版</div>
+            <div class="test-desc">你的抑郁程度有多深？13个维度深度检测</div>
+            <div class="test-count">1.8w人已测</div>
+        </div>
+        <button class="test-btn">点击测试</button>
+    </div>
+    <div class="test-item">
+        <img src="https://picsum.photos/100/80?5" alt="">
+        <div class="test-info">
+            <div class="test-title">瑞文智商测试-国际标准版</div>
+            <div class="test-desc">人均得分106分，快来测测你的得分和排名情况~</div>
+            <div class="test-count">2.5w人已测</div>
+        </div>
+        <button class="test-btn">点击测试</button>
+    </div>
+    <div class="test-item">
+        <img src="https://picsum.photos/100/80?6" alt="">
+        <div class="test-info">
+            <div class="test-title">门萨智商进阶测试-2026国际版</div>
+            <div class="test-desc">题库升级，超过130分为天才，全答对的人不足1%</div>
+            <div class="test-count">3.1w人已测</div>
+        </div>
+        <button class="test-btn">点击测试</button>
+    </div>
+</div>
+
+<!-- 6. 底部导航 -->
+<div class="footer-nav">
+    <a href="#" class="footer-item active">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>首页</span>
+    </a>
+    <a href="#" class="footer-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>分类</span>
+    </a>
+    <a href="#" class="footer-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+        <span>心理咨询</span>
+    </a>
+    <a href="#" class="footer-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span>我的</span>
+    </a>
 </div>
 
 </body>
