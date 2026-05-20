@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣味心理测评合集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        /* 滚动访客提示 */
+        .scroll-tip {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 60px;
+        }
+        .scroll-tip ul {
+            list-style: none;
+            animation: scroll 15s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-150px); }
+        }
+        /* 导航栏 */
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        /* 测评卡片列表 */
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: #888;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>趣味心理测评合集</h1>
+    </div>
+
+    <!-- 滚动访客提示 -->
+    <div class="scroll-tip">
+        <ul>
+            <li>用户123 刚刚完成了 MBTI 性格测试</li>
+            <li>用户456 刚刚完成了 九型人格测试</li>
+            <li>用户789 刚刚完成了 情商EQ测试</li>
+            <li>用户789 刚刚完成了 智商IQ测试</li>
+        </ul>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav">
+        <a href="#">智商测试</a>
+        <a href="#">情商测试</a>
+        <a href="#">MBTI测试</a>
+        <a href="#">热门测评</a>
+    </div>
+
+    <!-- 测评卡片 -->
+    <div class="card-list">
+        <div class="card">
+            <h3>MBTI 性格测试</h3>
+            <p>测测你是什么人格类型</p>
+        </div>
+        <div class="card">
+            <h3>九型人格测试</h3>
+            <p>了解你的核心人格特质</p>
+        </div>
+        <div class="card">
+            <h3>情商EQ测试</h3>
+            <p>看看你的情绪管理能力</p>
+        </div>
+        <div class="card">
+            <h3>智商IQ测试</h3>
+            <p>快速测测你的逻辑能力</p>
+        </div>
+    </div>
+</body>
+</html>
